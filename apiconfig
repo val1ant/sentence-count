@@ -1,0 +1,5 @@
+[API]
+MY_API_KEY = 'insertkeyhere'
+
+[OTHERSECTION]
+name = 'Val'
