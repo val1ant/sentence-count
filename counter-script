@@ -30,6 +30,8 @@ def sentenceCounter(media_list):
         media_src_id += 1
     return results
 
-#JSON CONVERTER
 sentenceCounter(media_list)
+
+#JSON CONVERTER
+
 
