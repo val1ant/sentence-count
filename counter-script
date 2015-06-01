@@ -10,7 +10,7 @@ start_date = '2014-01-01'
 end_date = '2014-04-01'
 
 ###SENTENCE COUNTER FUNCTION###
-def sentenceCounter(media_list):
+def sentenceCounter():
     media_src_id = 1
     final_media_src_id = 4
     results = []
@@ -30,7 +30,7 @@ def sentenceCounter(media_list):
         media_src_id += 1
     return results
 
-sentenceCounter(media_list)
+sentenceCounter()
 
 ###JSON CONVERTER###
 
