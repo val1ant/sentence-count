@@ -1,0 +1,35 @@
+import mediacloud, json
+
+#CONFIG 
+#import 
+
+mc = mediacloud.api.MediaCloud(MY_API_KEY)
+
+#SETTINGS
+start_date = '2014-01-01'
+end_date = '2014-04-01'
+
+#SENTENCE COUNTER FUNCTION
+def sentenceCounter(media_list):
+    media_src_id = 1
+    final_media_src_id = 4
+    results = []
+    while media_src_id <= final_media_src_id:
+        media_dict = {}
+        media_list = mc.mediaList((media_src_id-1),1)
+        source = media_list[0]
+        media_dict['media_id'] = source['media_id']
+        media_dict['name'] = source['name']
+        weekly_count_full = mc.sentenceCount('media_id:'+str(source['media_id']),split=True,split_start_date=start_date,split_end_date=end_date)
+        weekly_count_split = weekly_count_full['split']
+        del weekly_count_split['end']
+        del weekly_count_split['gap']
+        del weekly_count_split['start']
+        media_dict['sentenceCount'] = weekly_count_split
+        results.append(media_dict)
+        media_src_id += 1
+    return results
+
+#JSON CONVERTER
+sentenceCounter(media_list)
+
