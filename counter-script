@@ -1,15 +1,15 @@
 import mediacloud, json
 
-#CONFIG 
-#import 
+###CONFIG###
+#should I use ConfigParser?
 
 mc = mediacloud.api.MediaCloud(MY_API_KEY)
 
-#SETTINGS
+###SETTINGS###
 start_date = '2014-01-01'
 end_date = '2014-04-01'
 
-#SENTENCE COUNTER FUNCTION
+###SENTENCE COUNTER FUNCTION###
 def sentenceCounter(media_list):
     media_src_id = 1
     final_media_src_id = 4
@@ -32,6 +32,6 @@ def sentenceCounter(media_list):
 
 sentenceCounter(media_list)
 
-#JSON CONVERTER
+###JSON CONVERTER###
 
 
