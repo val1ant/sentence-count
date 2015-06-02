@@ -1,8 +1,11 @@
 import mediacloud, json
 
 ###CONFIG###
-#should I use ConfigParser?
+from ConfigParser import SafeConfigParser
+parser = SafeConfigParser()
+parser.read('apiconfig.py')
 
+MY_API_KEY = parser.get('API','MY_API_KEY')
 mc = mediacloud.api.MediaCloud(MY_API_KEY)
 
 ###SETTINGS###
@@ -11,8 +14,8 @@ end_date = '2015-01-01'
 
 ###SENTENCE COUNTER FUNCTION###
 def sentenceCounter():
-    media_src_id = 1
-    final_media_src_id = 4
+    media_src_id = int(parser.get('PARAMS','start_media_id'))
+    final_media_src_id = int(parser.get('PARAMS','end_media_id'))
     results = []
     while media_src_id <= final_media_src_id:
         media_dict = {}
